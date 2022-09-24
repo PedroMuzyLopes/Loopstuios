@@ -1,0 +1,83 @@
+:root {
+    /* Colors */
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --gray: hsl(0, 0%, 55%);
+    --dark_gray: hsl(0, 0%, 41%);
+
+    /* Font families */
+    --font_alata: 'Alata', sans-serif;
+    --font_josefin_sans: 'Josefin Sans', sans-serif;
+
+    /* Font sizes */
+    --heading_1: 4.7rem;
+    --heading_2: 3.3rem;
+    --heading_3: 2rem;
+    --regular_font_size: 15px;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 0.35s;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+html {
+    font-family: var(--font_alata);
+    font-size: 15px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font_josefin_sans);
+    text-transform: uppercase;
+}
+
+.global-container {
+    max-width: 90em;
+    margin: auto;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.jc-bt {
+    justify-content: space-between;
+}
+
+.ai-center {
+    align-items: center;
+}
