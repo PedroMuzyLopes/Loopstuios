@@ -6,7 +6,7 @@
     <div class="photo">
       <img src="<?= get_template_directory_uri(); ?>/src/images/interactive.jpg" alt="alternative text for this image">
     </div>
-    <div class="content flex col jc-center">
+    <div class="content flex col">
       <h2>The leader in interactive VR</h2>
       <p>Founded in 2011, Loopstudios has been producting world-class
         virtual reality projects for some of the best companies around the globe.
@@ -25,7 +25,7 @@
 
     <div class="list flex">
       <?php
-      $args = array('post_type' => 'creations', 'posts_per_page' => 8);
+      $args = array('post_type' => 'creations', 'posts_per_page' => 10);
       $the_query = new WP_Query($args);
       ?>
 
