@@ -32,12 +32,18 @@
 
                 <?php wp_nav_menu(array(
                     'theme_location' => 'header-menu',
-                    'menu_class' => 'flex menu',
+                    'menu_class' => 'flex menu menu-header-menu-container',
                     'after' => '<span class="nav-indicator" />'
                 )); ?>
             </nav>
 
             <section id="board-message" class="flex ai-center">
-                <h2><?= get_theme_mod('bd_board_message'); ?></h2>
+                <h2><?php
+                    if (get_theme_mod('textarea_header_message') != '') {
+                        echo get_theme_mod('textarea_header_message');
+                    } else {
+                        echo ('Edit this in Wordpress theme option 2');
+                    }
+                    ?></h2>
             </section>
     </header>
