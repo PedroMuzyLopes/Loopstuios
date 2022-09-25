@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <?php wp_head(); ?>
 </head>
 
@@ -20,7 +21,7 @@
         <div class="global-container flex col jc-bt">
 
             <nav class="navbar flex row">
-                <h1 id="logo">
+                <h1 class="logo">
                     Loop Studios
                     <a href="#" title="<?= get_bloginfo('name'); ?>">
                         <img src="<?= get_template_directory_uri(); ?>/src/images/logo.svg" alt="<?= get_bloginfo('name'); ?>" />
@@ -39,7 +40,7 @@
             </nav>
 
             <section id="board-message" class="flex ai-center">
-                <h2>Immersive Experiences that deliver</h2>
+                <h2><?= get_theme_mod('bd_board_message'); ?></h2>
             </section>
     </header>
 

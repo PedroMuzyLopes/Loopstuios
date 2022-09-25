@@ -4,15 +4,11 @@
 
   <section id="info">
     <div class="photo">
-      <img src="<?= get_template_directory_uri(); ?>/src/images/interactive.jpg" alt="alternative text for this image">
+      <img src="<?= get_theme_mod('photo_interactive') ?>" alt="alternative text for this image">
     </div>
     <div class="content flex col">
-      <h2>The leader in interactive VR</h2>
-      <p>Founded in 2011, Loopstudios has been producting world-class
-        virtual reality projects for some of the best companies around the globe.
-        Our award-winning creations have transformed businesses through digital experiences
-        that bind to their brand.
-      </p>
+      <h2><?= get_theme_mod('title_interactive'); ?></h2>
+      <p><?= get_theme_mod('textarea_interactive'); ?></p>
     </div>
   </section>
 
@@ -23,9 +19,9 @@
       <button class="see_all">See All</button>
     </div>
 
-    <div class="list flex">
+    <div class="list flex" id="creations_list">
       <?php
-      $args = array('post_type' => 'creations', 'posts_per_page' => 10);
+      $args = array('post_type' => 'creations', 'posts_per_page' => 8);
       $the_query = new WP_Query($args);
       ?>
 
@@ -40,6 +36,7 @@
         <p><?php _e('Sorry, we didnt post any creation yet.'); ?></p>
       <?php endif; ?>
     </div>
+    <button class="see_all bottom">See All</button>
   </section>
 
 </div>
