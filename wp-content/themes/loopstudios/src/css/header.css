@@ -1,0 +1,152 @@
+/* HEADER */
+header {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../images/hero.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding: 75px 0;
+  z-index: 10;
+}
+
+header.mobile-menu {
+  background: var(--black);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+
+/* LOGO */
+.logo {
+  font-size: 0;
+  max-width: 192px;
+  width: 100%;
+}
+
+.logo img {
+  width: 100%;
+}
+
+/* NAVBAR */
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.navbar ul {
+  gap: 12px;
+}
+
+.navbar ul li {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar ul li a {
+  color: var(--white);
+  font-size: var(--regular_font_size);
+  padding: 12px;
+}
+
+.nav-indicator {
+  opacity: 0;
+  width: 40%;
+  /* max-width: 20px; */
+  height: 2px;
+  background-color: var(--white);
+}
+
+.navbar ul li:hover > span {
+  opacity: 1;
+}
+
+#mobile-menu-icon {
+  opacity: 0;
+  display: none;
+}
+
+/* BOARD MESSAGE */
+
+#board-message {
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+#board-message h2 {
+  inline-size: min-content;
+  overflow-wrap: break-word;
+  font-family: var(--font_josefin_sans);
+  font-size: var(--heading_1);
+  color: var(--white);
+  font-weight: 300;
+  border: 3px solid var(--white);
+  padding: 50px;
+  width: 55%;
+  height: auto;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 768px) {
+
+  /* HEADER MOBILE */
+  header {
+    padding: 40px 0;
+  }
+
+  /* NAVBAR MOBILE */
+  #mobile-menu-icon {
+    opacity: 1;
+    display: initial;
+    height: 20px;
+  }
+
+  header .menu-header-menu-container {
+    opacity: 0;
+    position: absolute;
+    left: -99999px;
+    overflow-x: hidden;
+  }
+
+  header .menu-header-menu-container.active {
+    opacity: 1;
+    position: initial;
+    width: 100%;
+    padding: 25px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  header .navbar ul li {
+    align-items: flex-start;
+  }
+
+  /* HEADER BOARD MESSAGE MOBILE */
+  #board-message.hidden {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+  }
+
+  #board-message {
+    justify-content: center;
+  }
+
+  #board-message h2 {
+    font-size: var(--heading_2);
+    padding: 25px 15px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 387px) {
+  #board-message h2 {
+    font-size: var(--heading_3);
+  }
+}

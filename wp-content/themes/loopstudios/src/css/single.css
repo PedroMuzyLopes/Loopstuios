@@ -1,0 +1,18 @@
+/* SINGLE */
+#single_creation {
+  margin: 5em auto 5em;
+}
+
+#single_creation h1 {
+  font-size: var(--heading_3);
+  margin-bottom: 1em;
+}
+
+#single_creation picture {
+  width: 100%;
+  height: auto;
+}
+
+#single_creation picture img {
+  width: 100%;
+}

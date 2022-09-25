@@ -5,6 +5,7 @@ function load_scripts()
 {
 	wp_enqueue_style('global-css', get_template_directory_uri() . '/src/css/global.css', array(), time(), 'all');
 	wp_enqueue_style('styles', get_template_directory_uri() . '/src/css/styles.css', array(), time(), 'all');
+	wp_enqueue_script('main_script', get_template_directory_uri() . '/src/js/scripts.js', array(), time(), 'all');
 }
 add_action('wp_enqueue_scripts', 'load_scripts');
 
@@ -117,45 +118,5 @@ function register_creations_cpt()
 }
 add_action('init', 'register_creations_cpt');
 
-// Dynamic post pagination
-wp_register_script('core-js', get_template_directory_uri() . '/src/js/core.js');
-wp_enqueue_script('core-js');
-
-wp_localize_script('core-js', 'ajax_posts', array(
-	'ajaxurl' => admin_url('admin-ajax.php'),
-	'noposts' => __('No older creations found'),
-));
-
-function load_all_creations()
-{
-
-	$ppp = (isset($_POST["ppp"])) ? $_POST["ppp"] : 3;
-	$page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
-
-	header("Content-Type: text/html");
-
-	$args = array(
-		'suppress_filters' => true,
-		'post_type' => 'creations',
-		'posts_per_page' => $ppp,
-		'paged'    => $page,
-	);
-
-	$the_query = new WP_Query($args);
-
-?>
-
-	<?php if ($the_query->have_posts()) : ?>
-		<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-			<article title="<?php the_title(); ?>" class="flex" id="<?php the_ID() ?>" style="--thumbnail:url(<?php the_field('image') ?>);">
-				<h3><?php the_title(); ?></h3>
-			</article>
-		<?php endwhile;
-		wp_reset_postdata(); ?>
-	<?php else :  ?>
-		<p><?php _e('Sorry, we didnt post any creation yet.'); ?></p>
-	<?php endif; ?>
-<?php
-}
-
-add_action('wp_ajax_load_all_creations', 'load_all_creations');
+// Removing wp admin bar
+add_filter('show_admin_bar', '__return_false');

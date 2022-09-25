@@ -18,22 +18,22 @@
         <div id="links-credits" class="flex col">
             <ul class="social-icons flex">
                 <li>
-                    <a href="#facebook">
+                    <a href="https://www.facebook.com" target="_blank">
                         <img src="<?= get_template_directory_uri(); ?>/src/icons/icon-facebook.svg" alt="Facebook">
                     </a>
                 </li>
                 <li>
-                    <a href="#twitter">
+                    <a href="https://www.twitter.com" target="_blank">
                         <img src="<?= get_template_directory_uri(); ?>/src/icons/icon-twitter.svg" alt="Twitter">
                     </a>
                 </li>
                 <li>
-                    <a href="#pinterest">
+                    <a href="https://br.pinterest.com/" target="_blank">
                         <img src="<?= get_template_directory_uri(); ?>/src/icons/icon-pinterest.svg" alt="Pinterest">
                     </a>
                 </li>
                 <li>
-                    <a href="#instagram">
+                    <a href="https://www.instagram.com/" target="_blank">
                         <img src="<?= get_template_directory_uri(); ?>/src/icons/icon-instagram.svg" alt="Instagram">
                     </a>
                 </li>
@@ -42,6 +42,7 @@
         </div>
     </div>
 </footer>
+
 <?php wp_footer(); ?>
 </body>
 

@@ -1,36 +1,32 @@
-<?php
-    get_header(); 
-?>
-<div class="gird-container">
-    <?php
-        $categories = get_the_category();
+<?php get_header(); ?>
 
-        $args = array(
-            'numberposts' => 20,
-            'category' => $categories[0]->cat_ID,
-            'orderby' => 'post_date',
-            'order' => 'DESC',
-        );
+<div class="global-container">
 
-        $posts = get_posts($args);
-        foreach($posts as $postItem):
-        ?>
-            <div class="item-category">
-                <a href="<?= get_permalink($postItem->ID); ?>">
-                    <div class="image-container">
-                        <img class="thumbnail" src="<?= get_the_post_thumbnail_url($postItem->ID); ?>" alt="">
-                    </div>
-                </a>
-                <div class="wrapper-content">
-                    <a href="<?= get_permalink($postItem->ID); ?>">
-                        <h2 class="title"><?= $postItem->post_title; ?></h2>
-                    </a>
-                    <p><?= $postItem->post_excerpt; ?></p>
-                </div>
-            </div>
+    <section id="creations">
 
-        <?php
-        endforeach;
-    ?>
+        <div class="headline flex">
+            <h2>Creations</h2>
+        </div>
+
+        <div class="list flex" id="creations_list">
+            <?php
+            $category = get_the_category();
+            $args = array('posts_per_page' => -1, 'category' => $category[0]->cat_id);
+            $the_query = new WP_Query($args);
+            ?>
+
+            <?php if ($the_query->have_posts()) : ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <?php get_template_part('src/template-parts/creation_card') ?>
+                <?php endwhile;
+                wp_reset_postdata(); ?>
+            <?php else :  ?>
+                <p><?php _e('Sorry, we didnt post any creation yet.'); ?></p>
+            <?php endif; ?>
+        </div>
+        <button class="see_all bottom">See All</button>
+    </section>
+
 </div>
+
 <?php get_footer(); ?>
